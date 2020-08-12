@@ -1,0 +1,60 @@
+mongod --dbpath "PATH_NAME"
+rs - means replication
+
+mongod - server
+
+create replica:
+mongod --dbpath "D:/Public/bala/tech/mongo-db/p" --replSet rs1 --port 27018
+mongod --dbpath "D:/Public/bala/tech/mongo-db/s-1" --replSet rs1 --port 27019
+mongod --dbpath "D:/Public/bala/tech/mongo-db/s-2" --replSet rs1 --port 27020
+
+set primary:
+mongo --port 27018
+rs.initiate()
+
+rs.status()
+
+rs.add("localhost:27019")
+rs.add("localhost:27020")
+
+bala=rs.conf()
+
+use test123
+db.testcollection.insert({id:1, name:"bala"})
+
+go-to primary and check data ?
+mongo --port 27020
+show dbs
+rs.slaveOk() // For visibility purpose just we run this command
+
+
+day 2:(sharding-->1. config db, 2. router, 3.shared server)
+==========
+
+1.config db
+==========
+mongod --configsvr --port 27018 --replSet sr0 --dbpath "D:/Public/bala/tech/mongo-db/day-2/primary"
+mongod --configsvr --port 27019 --replSet sr0 --dbpath "D:/Public/bala/tech/mongo-db/day-2/sec-1"
+mongod --configsvr --port 27020 --replSet sr0 --dbpath "D:/Public/bala/tech/mongo-db/day-2/sec-2"
+
+2.router
+=======
+mongos -configdb sr0/localhost:27018,localhost:27019,localhost:27020 --port 27022
+
+3.shared server
+==============
+mongod --port 27033 --dbpath "D:/Public/bala/tech/mongo-db/day-2/shared-server/s-1" --shardsvr
+mongod --port 27034 --dbpath "D:/Public/bala/tech/mongo-db/day-2/shared-server/s-2" --shardsvr
+mongod --port 27035 --dbpath "D:/Public/bala/tech/mongo-db/day-2/shared-server/s-3" --shardsvr
+
+4.connect the router
+=================
+mongo --port 27022
+
+sh.addShard("localhost:27033")
+sh.addShard("localhost:27034")
+sh.addShard("localhost:27035")
+
+sh.status()
+sh.enableSharding("students")
+sh.shardCollection("students.grades",{"student_id":1})

@@ -1,0 +1,43 @@
+git init
+git config --list
+git config --global user.name "Balamurugan Durairajan"
+git config --global user.password "J9oqTUUNCv1RJ6dcJUXz"
+git clone https://IRN-7736:yEWNzvYy3nUD1A1YbgX4@gitlabee.dt.renault.com/IRN-7736/icm.git ( Authenticate with GitHub using a token)
+git status -s
+git add . (add all folders with files to local repository)ut
+git commit -m "initial commit"(local repository committed)
+git pull origin master (it will check if already exisits commit means we have to take update and then commit)
+git branch(show current branch)
+git push
+
+
+
+git clone -b integration https://gitlabee.dt.renault.com/IRN-7736/icm.git
+git clone -b integration https://IRN-7736:yEWNzvYy3nUD1A1YbgX4@gitlabee.dt.renault.com/IRN-7736/icm.git
+
+git clone -b Acceptance https://gitlabee.dt.renault.com/IRN-7736/icm.git
+ 
+
+
+yEWNzvYy3nUD1A1YbgX4 originaltoken
+tRxoT4FBoY1N3NUrgiRh feedtoken
+
+
+git status
+git add .
+git pull
+git commit -m "hi i committed my code"
+git push
+
+git -c http.sslVerify=false clone -b 19.5_DEV2 https://IRN-7736:yEWNzvYy3nUD1A1YbgX4@gitlabee.dt.renault.com/IRN-7736/icm.git ( Authenticate with GitHub using a token)
+
+new token:
+J9oqTUUNCv1RJ6dcJUXz
+
+feed token:
+tRxoT4FBoY1N3NUrgiRh
+
+Git status - is there a way to show changes only in a specific directory ?
+git status <directoryPath>
+git status .
+. - means here current directory

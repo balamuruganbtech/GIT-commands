@@ -1,0 +1,20 @@
+1) Jackson Annotations: Difference Between JsonIgnoreProperties(ignoreUnknown=true) and JsonInclude(Include.NON_EMPTY)
+	https://stackoverflow.com/questions/39005703/jackson-annotations-difference-between-jsonignorepropertiesignoreunknown-true
+
+https://www.naturalprogrammer.com/blog/1685371/remove-null-values-spring-boot-json-responses
+
+https://www.youtube.com/watch?v=bbz2boNSeL0 
+
+
+ng g guard auth
+
+sessionStorage.setItem('userInfo',window.btoa(JSON.stringify({
+	"role":"superadmin",
+	"privelege": {
+		"new" : ["new_creation","new_duplication"],
+		"follow_up" : ["follow_up_prepare"]
+	}})))
+
+
+
+we need to send mail to #waszos-adm <list.waszos-adm@renault.com> to install the certificate

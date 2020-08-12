@@ -1,0 +1,2 @@
+-- Allow all users (more info : https://stackoverflow.com/questions/8348506/grant-remote-access-of-mysql-database-from-any-ip-address)
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
