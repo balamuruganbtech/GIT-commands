@@ -3,20 +3,20 @@ Migration SVN to GIT
 
 SVN to Local Folder
 -------------------
-* git svn clone http://baselinesvn.mc2.renault.fr:9090/svn/svn51323/branches/dmd-V10.0.0-b
+* git svn clone  https://appurl
 
 
 
 Local to GIT repo first time
 ------------------------------
-* git remote add origin https://gitlab.intra.renault.fr/irn-51323/DMD.git 
+* git remote add origin  https://appurl
 * git push -u origin --all 
 * git push -u origin --tags 
 
 Clone workspace for first time from GIT
 -----------------------------------------
-* git config --global http.proxy http://z024029:carter01@138.21.89.192:3128 
-* git -c http.sslVerify=false clone -b develop https://gitlabee.dt.renault.com/IRN-13225/peq.git
+* git config --global http.proxy http://z024029:carter01@122.21.89.192:31223
+* git -c http.sslVerify=false clone -b develop  https://appurl
 
 If the above approach throws Authentication Failed Error then,
 ----------------------------------------------------------------
@@ -24,22 +24,22 @@ If the above approach throws Authentication Failed Error then,
 * After this command go to GitLab and click on Profile---->Access Tokens.
 * Give a name for the Token, select the scope as api and click on Create personal access token button.
 * Save the generated token in a file since every time we would need to input the token as password on doing this approach.
-* git -c http.sslVerify=false clone -b develop https://gitlabee.dt.renault.com/IRN-13225/peq.git 
+* git -c http.sslVerify=false clone -b develop  https://appurl
 * Give the username as your zid. Password would be the token that was generated in the previous step.
 
 
 Setting Proxy
 --------------
-* set http_proxy=http://z024029:carter01@138.21.89.192:3128
-* set https_proxy=https://z024029:carter01@138.21.89.192:3128
+* set http_proxy=http://z024029:carter01@122.21.89.192:31223
+* set https_proxy=https://z024029:carter01@122.21.89.192:31223
 
 
 Git Commands:
 -------------
-git clone -b <future branch> https://gitlabee.dt.renault.com/IRN-13225/peq.git
+git clone -b <future branch>  https://appurl
 Ex:
 ====
-git clone -b 1.17_b2 https://IRN-66498:Yhw1q6EreeTzyPAzD__i@gitlabee.dt.renault.com/IRN-66498/drl-provider-ws.git
+git clone -b 1.17_b2 https://appurl
 
 git pull(=git fetch +git merge,to update the workspace with latest changes)
 git stash(saves the current working files on a new stack and will not commit the changes so that we can switch to work on other branches to work)
@@ -60,7 +60,7 @@ git init
 git config --list
 git config --global user.name "Balamurugan Durairajan"
 git config --global user.password "yEWNzvYy3nUD1A1YbgX4"
-git clone https://IRN-7736:yEWNzvYy3nUD1A1YbgX4@gitlabee.dt.renault.com/IRN-7736/icm.git ( Authenticate with GitHub using a token)
+git clone  https://appurl ( Authenticate with GitHub using a token)
 git status -s
 git add . (add all folders with files to local repository)ut
 git commit -m "initial commit"(local repository committed)
@@ -68,4 +68,4 @@ git pull origin master (it will check if already exisits commit means we have to
 git branch(show current branch)
 git push
 
-git clone -b 19.5_DEV3 https://IRN-7736:yEWNzvYy3nUD1A1YbgX4@gitlabee.dt.renault.com/IRN-7736/icm.git
+git clone -b 19.5_DEV3  https://appurl
